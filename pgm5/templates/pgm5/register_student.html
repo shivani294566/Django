@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Student</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Register Student to a Course</h2>
+        <form action="{% url 'register_student' %}" method="post"></form>
+        {% csrf_token %}
+        <div class="label">
+            <label for="student_name" class="form_label">Student Name:</label>
+            <input type="text" class="form_control" placeholder="Enter Your name" id="student_name"
+            name="student_name" required>
+        </div>
+        <div class="label">
+            <label for="course_id" class="form_label"><Select Courses:</label>
+            <select name="course_id" id="course_id" class="form_select" required>
+                {% for course in courses %}
+                <option value="{{course_id}}">{{course.name}}</option>
+                {% endfor %}
+            </select>    
+        </div>
+        <button type="submit">Register</button>
+    </div>
+    
+</body>
+</html>

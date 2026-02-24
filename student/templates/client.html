@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>customer</title>
+	{% include "link.html" %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{%include "menu2.html"%}
+<body>
+<h2 align="center">customer</h2>
+<center>{{msg}}</center>
+<table align="center" width="60%">
+	
+	<tr>
+		<td>
+			<form name="client" autocomplete="off" method="POST">
+				<font color="red">*</font>Driver Name
+				<input autofocus="on" required class="form-control" type="text" name="drivername"><br>
+				<font color="red">*</font>Email Id
+				<input autofocus="on" required class="form-control" type="text" name="emailid"><br>
+				<font color="red">*</font>Vehicle Name
+				<input autofocus="on" required class="form-control" type="text" name="vehiclename"><br>
+				<font color="red">*</font>Vehicle Type				
+				<input autofocus="on" required class="form-control" type="text" name="vehicletype"><br>
+				<font color="red">*</font>Model Year
+				<input autofocus="on" required class="form-control" type="year" name="modelyear"><br>
+				<font color="red">*</font>Driver Mobile Number
+				<input autofocus="on" required class="form-control" type="number" name="drivermobilenumber"><br>
+				<font color="red">*</font>Driving Licence Number
+				<input autofocus="on" required class="form-control" type="number" name="drivinglicencenumber"><br>
+				<font color="red">*</font>Rate Per Kilometer
+				<input autofocus="on" required class="form-control" type="kilometer" name="rateperkilometer">
+				<font color="red">*</font>Select City
+				<select class="form-select" type="text" name="city">
+					<optiion></optiion>
+					<option>Raichur</option>
+					<option>Gulbarga</option>
+					<option>Dharwad</option>
+					<option>Davanagere</option>
+					<option>Bidar</option>
+					<option>Bijapura</option>
+				</select>
+				<center>
+				</br>
+				<input type="submit" class="btn btn-success" name="register" value="Register">
+				<input type="reset" name="cancel" class="btn btn-danger" value="Cancle">
+				</center>
+				{%csrf_token%}
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

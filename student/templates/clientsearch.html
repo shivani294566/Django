@@ -1,0 +1,93 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ClientSearch</title>
+</head>
+<body><center>{{msg}}</center>
+</center>
+<form name="frmsearch" method="POST">
+	<table align="center">
+		<tr>
+			<td>
+				<select class="form-select" name="Searchby" required>
+					<option value="">Search By</option>
+					<option value="1">Driver Name</option>
+					<option value="2">Vehicle Name</option>
+					<option value="3">Vehicle Type</option>
+					<option value="4">Model Year</option>
+					<option value="5">Driver Mobile Number</option>
+					<option value="6">Drivining License Number</option>
+					<option value="7">City</option>
+				</select>
+				<td>
+					<td>
+					<input type="text" name="value" required class="form-control">
+				</td>
+				<td>
+				<input type="submit" name="btnsubmit" value="Search" class="btn btn-primary">
+			</td>
+		</tr>
+	</table>
+		{% csrf_token %}
+	</form>
+</center>
+<br/>
+{% if data %}
+<table class="table table-bordered" border="1" align="center">
+	<tr>
+		<th>Id</th>
+		<th>Driver NameId</th>
+		<th>Vehicle Name</th>
+		<th>Vehicle Type</th>
+		<th>Model Year</th>
+		<th>Driver Mobile Number</th>
+		<th>Driving License Number</th>
+		<th>City</th>
+		<th>Delete</th>
+	</tr>
+{% for d in data%}
+</tr>
+<td>{{d.id}}</td>
+<td>{{d.drivername}}</td>
+<td>{{d.vehiclename}}</td>
+<td>{{d.vehicletype}}</td>
+<td>{{d.drivermobilenumber}}</td>
+<td>{{d.drivinglicensenumber}}</td>
+<td>{{city}}</td>
+<form name="frmdelete" method="POST">
+	<input type="hidden" name="sid" value="{{d.id}}">
+	<input type="submit" name="btnsubmit" value="x" class="btn btn-danger">
+	{% csrf_token %}
+</form>
+</td>
+{% endfor %}
+</table>
+{% endif %}
+</body>
+</html>
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

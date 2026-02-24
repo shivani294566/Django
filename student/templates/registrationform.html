@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>registrationform</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	{%include "menu.html"%}
+<h2 align="center">Registration Form</h2>
+</html>
+<center>{{msg}}</center>
+<table align="center" width="60%">
+	<tr>
+		<td>
+			<form name="registrationform" autocomplete="off" method="POST">
+				<font color="red">*</font>Name
+				<input autofocus="on" required class="form-control" type="text" name="name"><br>
+				<font color="red">*</font>Email ID
+				<input autofocus="on" required class="form-control" type="email" name="emailid"><br>
+				<font color="red">*</font>Password
+				<input autofocus="on" required class="form-control" type="password" name="password"><br>
+				<font color="red">*</font>Mobile Number
+				<input autofocus="on" required class="form-control" type="number" name="mobilenumber"><br>
+				<font color="red">*</font>Pincode
+				<input autofocus="on" required class="form-control" type="code" name="pincode"><br>
+				<font color="red">*</font>City
+				<select class="form-select" type="text" name="city">
+					<optiion></optiion>
+					<option>Raichur</option>
+					<option>Gulbarga</option>
+					<option>Dharwad</option>
+					<option>Davanagere</option>
+					<option>Bidar</option>
+					<option>Bijapura</option>
+				</select>
+				<center>
+				</br>
+				<input type="submit" class="btn btn-success" name="register" value="Register">
+				<input type="reset" name="cancel" class="btn btn-danger" value="Cancle">
+				</center>
+				{%csrf_token%}
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

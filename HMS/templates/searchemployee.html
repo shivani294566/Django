@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Search Employee</title>
+{% include "designs/head.html" %}
+</head>
+<body>
+{% include "designs/mid.html" %}
+<h3>Search Employee</h3>
+<center>
+	<h4>{{msg}}</h4>
+</center>
+	<form name="search" method="post" autocomplete="off">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4">
+		<div class="input-group">
+			<input type="text" name="fullname" required class="form-control" placeholder="Enter full name" autofocus="on">
+			<input type="submit" name="btnsearch" value="Search" class="btn btn-info">
+		</div>
+	</div>
+	</div>
+	
+	</div>
+	{%csrf_token%}
+	</form>
+	<br/>
+	{% if empdata %}
+	<table class="table table-hover">
+		<thead class="table-dark">
+		<tr>
+			<th>Emp. Id</th>
+			<th>Full name</th>
+			<th>Gender</th>
+			<th>Date Of Birth</th>
+			<th>Contact Number</th>
+			<th>Email ID</th>
+			<th>Address</th>
+			<th>Register data</th>
+			<th>Delete</th>
+		</tr>
+		</thead>
+	{% for emp in empdata %}
+		<tr>
+		<td>
+			<form name="frmdelete" method="post">
+				<input type="hidden" name="empid" value="{{emp.id}}">
+				<input type="submit" name="btndelete" value="{{emp.employeeid}}" class="btn btn-link">
+				{% csrf_token %}
+			</form>
+
+		
+	</td>
+		<td>{{emp.fullname}}</td>
+		<td>{{emp.gender}}</td>
+		<td>{{emp.dateofbirth}}</td>
+		<td>{{emp.contsctnumber}}</td>
+		<td>{{emp.emailid}}</td>
+		<td>{{emp.adress}}</td>
+		<td>{{emp.createdon}}</td>
+		<td>
+			<form name="frmdelete" method="post">
+				<input type="hidden" name="empid" value="{{emp.id}}">
+				<input type="submit" name="btndelete" value="Delete" class="btn btn-danger">
+				{% csrf_token %}
+			</form>
+		</td>
+		</tr>
+	{%endfor%}
+</table>
+{%endif%}
+</body>
+</html>

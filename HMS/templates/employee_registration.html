@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Employee Registration</title>
+{% include "designs/head.html" %}
+</head>
+<body>
+{% include "designs/mid.html" %}
+
+<h3>Personal Details</h3>
+<center>
+	<h4>{{msg}}</h4>
+</center>
+<form autocomplete="off" name="employeeregistration" method="post">
+<div  class="container-fluid">
+	<div class="row">
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+<font color="red"><b>Employee ID</b></font><input class="form-control" autofocus="on" type="text" name="employeeid" pattern="[a-zA-Z0-9]{4,10}" placeholder="Enter Employee ID" required>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+<font color="red"><b>Full Name</b></font><input class="form-control" required type="text" name="fullname" pattern="[a-zA\s\.]{2,100}" placeholder="Enter Full Name">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+			<font color="red"><b>Gender</b></font>
+			<select class="form-select" name="gender" required>
+			<option value="">Select Gender</option>
+			<option>Male</option>
+			<option>Female</option>
+			<option>TransGender</option>
+			<option></option>
+			</select>	
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+			<font color="red"><b>Date Of Birth</b></font><input class="form-control" type="date" name="dateofbirth" pattern="[a-zA-Z0-9]{4,10}" placeholder="Enter Date Of Birth" required>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+<font color="red"><b>Contact Number</b></font><input class="form-control" type="number" required name="contactnumber" pattern="[0-9]{10,13}" placeholder="Enter Contact Number">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+<font color="red"><b>Email ID</b></font><input class="form-control" type="email" name="emailid" required placeholder="Enter Email ID">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+			<font color="red"><b>Address</b></font><input class="form-control" type="text" name="address" pattern="[a-zA-Z0-9]{4,10}" placeholder="Enter Address" required>
+		</div>
+		
+		<div class="col-12">
+			<center>
+			<input type="submit" class="btn btn-success" name="btnregister" value="Register Employee">
+			<input type="reset" name="btncancel" value="Cancel" class="btn btn-warning">
+			</center>
+		</div>
+	</div>
+</div>
+{%csrf_token%}
+</form>
+{% include "designs/last.html" %}
+
+</body>
+</html>

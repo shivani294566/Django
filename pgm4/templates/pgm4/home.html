@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<style type="text/css">
+    nav{
+        background-color:rgba(red, green, blue, alpha);
+        padding: 10px;
+    }
+</style>
+<body>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'contacts' %}">Contacts</a></li>
+                <li><a href="{% url 'aboutus' %}">Aboutus</a></li>
+            </ul>
+        </nav>
+        <div class="home">
+            <h1>This is the Home Page</h1>
+        </div>
+        <footer>
+            <ul>
+                <li><a href="#">Privacy and Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+            <p>&copy; 2024 vtu. All rights reserved</p>
+        </footer>
+    </section>
+</body>
+</html>

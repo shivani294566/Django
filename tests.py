@@ -1,42 +1,29 @@
-{% extends 'car_dealer/base.html' %}
+{% extends 'customer/base.html' %}
 {% block content %}
-<div class="w3-bar w3-black w3-large">
-  <div class="w3-bar-item w3-left w3-black">Car Dealer Portal: {{user.username}}</div>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/logout/">Logout</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right " href="/car_dealer_portal/auth/">Home</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/order_list/">Orders</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/manage_vehicles/">Vehicles</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/history/">Earnings</a>
+<div class="w3-bar">
+ 
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/customer_portal/login/">Login</a>
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/">Home</a>
+  
 </div>
-<h3 class="w3-center" style="padding-top:30"><b>Vehicle's Order List</b></h3>
-<div style="padding:18">
-<table class="w3-table w3-striped w3-center">
 
+<div class="w3-display-container"  style="height:1000px;">
+<div class="w3-display-middle">
 
-  <tr>
-    <th style="padding:20">Name </th>
-    <th style="padding:20">Color</th>
-    <th style="padding:20">Rental Amount </th>
-    <th style="padding:20">Days </th>
-    <th style="padding:20">Action
-    </th>
-  </tr>
+ <b> <h2>Registration Form</h2></b>
 
-  {% for order in order_list %}
+<form class="w3-container" action="/customer_portal/registration/" method="POST">{% csrf_token %}
+  <lable>FirstName : </lable><input class="w3-input" type="text" name="firstname"><br><br>
+  <lable>LastName : </lable><input class="w3-input" type="text" name="lastname"><br><br>
+  <lable>Username : </lable><input class="w3-input" type="text" name="username"><br><br>
+  <lable>Password : </lable><input class="w3-input" type="password" name="password"><br><br>
+  <lable>Email : </lable><input class="w3-input" type="text" name="email"><br><br>
+  <lable>Contact : </lable><input class="w3-input" type="text" name="mobile"><br><br>
+  <lable>City : </lable><input class="w3-input" type="text" name="city"><br><br>
+  <lable>Pincode : </lable><input class="w3-input" type="text" name="pincode"><br><br>
+  <input class="w3-btn w3-teal" type="submit"><br><br>
+</form>
 
-  <tr>
-    <td>{{order.vehicle.car_name}}</td>
-    <td>{{order.vehicle.color}}</td>
-    <td>${{order.rent}}</td>
-    <td>{{order.days}}</td>
-    <td><form action = "/car_dealer_portal/complete/" method="post">
-      {% csrf_token %}
-      <input type="hidden" name="id" value="{{order.id}}">
-      <input class="w3-btn w3-indigo" type="submit" value="Complete">
-    </form></td>
-  </tr>
-
-{% endfor %}
-</table>
+</div>
 </div>
 {% endblock %}
